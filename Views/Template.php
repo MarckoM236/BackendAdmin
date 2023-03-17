@@ -9,11 +9,20 @@
 <body>
 
     <?php 
-        include "Modules/Head.php";
+        include "Modules/head.php";
 
-        include "Modules/Menu.php";
+        include "Modules/menu.php";
 
-        include "Modules/Footer.php";
+        include "Modules/footer.php";
+
+        //Friendly URL
+        if(isset($_GET["ruta"])){
+            if($_GET["ruta"]=="home" || $_GET["ruta"]=="products" ||
+                $_GET["ruta"]=="profile"){
+
+                    include "Modules/".$_GET["ruta"].".php";
+                }
+        }
     ?>
     
 </body>
