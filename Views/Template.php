@@ -1,3 +1,6 @@
+<?php
+//session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,5 +79,8 @@
     <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
     <script src="Views/assets/js/init/fullcalendar-init.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="Views/Js/functions.js"></script>
 </body>
 </html>

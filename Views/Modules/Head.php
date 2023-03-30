@@ -10,7 +10,9 @@
             </div>
             <div class="top-right">
                 <div class="header-menu">
+                
                     <div class="header-left">
+                        <span><?php echo $_SESSION['userName'];?></span>
                         <button class="search-trigger"><i class="fa fa-search"></i></button>
                         <div class="form-inline">
                             <form class="search-form">
@@ -92,7 +94,7 @@
                         <div class="user-menu dropdown-menu">
                             <a class="nav-link" href="profile"><i class="fa fa- user"></i>Perfil</a>
 
-                            <a class="nav-link" href="salir"><i class="fa fa-power -off"></i>Salir</a>
+                            <a class="nav-link" onclick="logout();"><i class="fa fa-power -off"></i>Salir</a>
                         </div>
                     </div>
 
