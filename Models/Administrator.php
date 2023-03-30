@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/PHP/backendMVC'.'/routes.php';
+require_once $_SERVER['DOCUMENT_ROOT'].PROJECT.'routes.php';
 require_once MODEL_PATH."Connection.php";
 
 class Administrator{

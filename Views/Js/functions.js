@@ -1,3 +1,4 @@
+//---------------------LOGIN-----------------------------------------------
 function logout(){
     $.ajax({
       url: '/PHP/backendMVC/Controllers/AjaxController.php',
@@ -39,7 +40,40 @@ function entrar(){
     }
   });
 }
+//------------------------------FIN LOGIN-----------------------------------------------
 
+//----------------------------PRODUCTS-----------------------------------------------
+
+function getProducts(){
+  $.ajax({
+    url: '/PHP/backendMVC/Controllers/AjaxController.php',
+    type: 'POST',
+    data: {function: 'getAll',controller:'Product'},
+    dataType: 'json',
+    success: function(datas) {
+      for(let i=0; i<=Object.keys(datas.data).length;i++) {
+        let fila = $("<tr>");
+          fila.append($("<td>").text(datas.data[i].id));
+          fila.append($("<td>").text(datas.data[i].category));
+          fila.append($("<td>").text(datas.data[i].title));
+          fila.append($("<td>").text(datas.data[i].descrip));
+          fila.append($("<td>").html("<button onclick='updateProduct("+datas.data[i].id+");' class='btn btn-success'>Editar</button> | <button onclick='deleteProduct("+datas.data[i].id+")' class='btn btn-danger'>Eliminar</button>"));
+          $("#products tbody").append(fila);
+      }
+    },
+    error: function() {
+      alert('Error al consultar los datos');
+    }
+  });
+}
+
+function updateProduct(id){
+  alert('Editar '+id);
+}
+
+function deleteProduct(id){
+  alert('Eliminar '+id);
+}
 
 
 

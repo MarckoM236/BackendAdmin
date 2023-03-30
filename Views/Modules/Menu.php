@@ -10,7 +10,7 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="products" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Productos</a>
                         <ul class="sub-menu children dropdown-menu">                            <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="productos">Productos</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="products">Productos</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">

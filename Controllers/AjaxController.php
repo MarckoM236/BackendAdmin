@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/PHP/backendMVC'.'/routes.php';
+require_once '../routes.php';
 require_once CONTROLLER_PATH.'Request/requestController.php';
 
 class AjaxController{
