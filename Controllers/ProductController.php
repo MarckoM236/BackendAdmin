@@ -3,10 +3,13 @@
 require_once $_SERVER['DOCUMENT_ROOT'].PROJECT.'routes.php';
 require_once MODEL_PATH.'Product.php';
 require_once MODEL_PATH.'Category.php';
+require_once CORE_PATH.'validateProducts.php';
 
 class ProductController{
     private $modelProduct;
     private $modelCategory;
+    //private $errors=array();
+    
     
     public function __construct()
     {
@@ -39,6 +42,29 @@ class ProductController{
         return $response;
     }
 
+    public function insertProduct($data){
+        $response=null;
+        $result=null;
+        $inputsName=array("categoria","tipo","ruta","titulo","precio");
+        $inputsVal=array($data['products']['categoria'],$data['products']['tipo'],$data['products']['ruta'],$data['products']['titulo'],$data['products']['precio']);
+        $validate=validateInputs($inputsVal,$inputsName);
+        if($validate==null){
+            $result=$this->modelProduct->createProduct($data['products']);
+            if($result!== null){
+                $response['message']="Se guardo el producto exitosamente"; 
+                $response['data']=$result; 
+            }
+            else{
+                $response['message']="No se pudo guardar el producto";    
+            }
+        }
+        else{
+            $response['message']="Error"; 
+            $response['data']=$validate;
+        }
+        
+        return $response;
+    }
 
     public function deleteProduct($data){
         $response=null;
@@ -64,4 +90,9 @@ class ProductController{
         }
         return $response;
     }
+
+    
+
+    
+
 }

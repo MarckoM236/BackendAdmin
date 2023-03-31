@@ -39,11 +39,14 @@
 
             //Friendly URL
             if(isset($_GET["ruta"])){
-                if($_GET["ruta"]=="home" || $_GET["ruta"]=="products" ||
+                if($_GET["ruta"]=="home" ||
                     $_GET["ruta"]=="profile"){
 
                         include "Modules/".$_GET["ruta"].".php";
                     }
+                if($_GET["ruta"]=="products" || $_GET["ruta"]=="insertProduct"){
+                    include "Modules/Products/".$_GET["ruta"].".php";
+                }
             }
             
             include "Modules/footer.php";

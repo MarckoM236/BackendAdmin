@@ -73,6 +73,33 @@ function getProducts(){
   });
 }
 
+function insertProduct(){
+  var formData = new FormData(document.getElementById('insertform'));
+  let products={categoria:formData.get('categoria'),tipo:formData.get('tipo'),ruta:formData.get('ruta'),titulo:formData.get('titulo'),
+  detalle:formData.get('detalle'),precio:formData.get('precio'),descripcion:formData.get('descripcion')};
+  console.log(products);
+    $.ajax({
+      url: '/PHP/backendMVC/Controllers/AjaxController.php',
+      type: 'POST',
+      data: {function: 'insertProduct',controller:'Product',products},
+      dataType: 'json',
+      success: function(data) {
+        if(data.message==="Error"){
+          $('#response').addClass('alert alert-danger').text(data.data);
+        }
+        else{
+          alert(data.message);
+          console.log(data.data);
+          location.replace('/PHP/backendMVC/products');
+        }
+          
+      },
+      error: function() {
+        alert('Error al intentar eliminar el producto');
+      }
+    });
+  }
+
 function updateProduct(id){
   alert('Editar '+id);
 }

@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="container"><button  class=" w-25 p-3 btn btn-success">Añadir Productos</button><br></div>
+                    <div class="container"><a href="insertProduct" class=" w-25 p-3 btn btn-success">Añadir Productos</a><br></div>
                     <table class="table" id="products">
                         <thead>
                             <tr>
