@@ -16,7 +16,7 @@ class ProductController{
         
     
     public function getAll($data){
-        
+        $result=null;
         $product=$this->modelProduct->getAllProducts();
         
         for($i=0;$i<count($product);$i++){
@@ -28,13 +28,39 @@ class ProductController{
                 $result[]= $res;
         }
         
-        if($result!== false){
+        if($result!== null){
             $response['message']="OK";
             $response['data']=$result;
         }
         else{
             $response['message']="No hay productos disponibles";
             $response['data']=NULL;
+        }
+        return $response;
+    }
+
+
+    public function deleteProduct($data){
+        $response=null;
+        $product=false;
+        $result=null;
+        if(isset($data['id'])){
+            $product=$this->modelProduct->getProductById($data['id']);
+            
+            if($product!=false){
+                $result=$this->modelProduct->deleteProduct($data['id']);
+
+                if($result!== null){
+                    $response['message']="Producto Eliminado";  
+                }
+                else{
+                    $response['message']="No se pudo eliminar el producto";    
+                }
+            }
+            else{
+                $response['message']="Producto no encontrado"; 
+            }
+            
         }
         return $response;
     }

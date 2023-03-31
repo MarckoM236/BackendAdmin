@@ -11,7 +11,9 @@ class Product{
         }
     
         public  function getProductById($id) {
-            
+            $stmt = $this->con->prepare("SELECT * FROM productos WHERE id=".$id);
+            $stmt->execute();
+            return $stmt->fetch();
         }
     
         public  function getAllProducts() {
@@ -29,7 +31,8 @@ class Product{
         }
     
         public function deleteproduct($id) {
-            
+            $stmt = $this->con->prepare("DELETE FROM productos WHERE id=".$id);
+            return $stmt->execute();
         }
     }
     
