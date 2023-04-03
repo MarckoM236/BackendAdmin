@@ -1,10 +1,10 @@
-
+<?php require_once $_SERVER['DOCUMENT_ROOT'].PROJECT.'routes.php';?>
 <!-- Header-->
 <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="./"><img src="Views/Img/Icons/logo2.png" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="Views/Img/Icons/logo2.png"><img src="" alt="Logo"></a>
+                    <a class="navbar-brand" href="./"><img src="<?php echo PROJECT.'Views/Img/Icons/logo2.png'?>" alt="Logo"></a>
+                    <a class="navbar-brand hidden" href="<?php echo PROJECT.'Views/Img/Icons/logo2.png'?>"><img src="" alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="profile"><i class="fa fa- user"></i>Perfil</a>
+                            <a class="nav-link" href=<?php echo PROJECT."profile"?>><i class="fa fa- user"></i>Perfil</a>
 
                             <a class="nav-link" onclick="logout();"><i class="fa fa-power -off"></i>Salir</a>
                         </div>

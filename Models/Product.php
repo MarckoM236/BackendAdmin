@@ -38,7 +38,18 @@ class Product{
         }
     
         public function updateProduct($productData) {
-           
+            $image="image.jpg";
+            $stmt=$this->con->prepare("UPDATE productos SET id_categoria=?, tipo=?, ruta=?, estado=1, titulo=?, detalle=?, precio=?, foto=?, descripcion=? WHERE id=".$productData['id']);
+            $stmt->bindParam(1,$productData['categoria']);
+            $stmt->bindParam(2,$productData['tipo']);
+            $stmt->bindParam(3,$productData['ruta']);
+            $stmt->bindParam(4,$productData['titulo']);
+            $stmt->bindParam(5,$productData['detalle']);
+            $stmt->bindParam(6,$productData['precio']);
+            //$stmt->bindParam("?",$productData['foto']);
+            $stmt->bindParam(7,$image);
+            $stmt->bindParam(8,$productData['descripcion']);
+            return $stmt->execute();
         }
     
         public function deleteproduct($id) {
